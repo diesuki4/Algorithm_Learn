@@ -7,7 +7,7 @@ public class Program
 	{
 		int max = 0, index = 1;
 
-		for (int i = 1; i <= 9; i++)
+		for (int i = 1; i <= 9; ++i)
 		{
 			int n = int.Parse(Console.ReadLine());
 
