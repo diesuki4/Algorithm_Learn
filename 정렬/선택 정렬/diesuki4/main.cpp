@@ -32,11 +32,11 @@ void swap(int &a, int &b)
 
 int min_index(int arr[], size_t size, int startIdx)
 {
-	int min_idx = startIdx;
+	int minIdx = startIdx;
 
 	for (int i = startIdx + 1; i < size; ++i)
-		if (arr[i] <= arr[min_idx])
-			min_idx = i;
+		if (arr[i] <= arr[minIdx])
+			minIdx = i;
 
-	return min_idx;
+	return minIdx;
 }
