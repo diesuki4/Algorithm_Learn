@@ -1,75 +1,70 @@
 #include <iostream>
 
 #define NUM_OF_DWARFS 9
-#define NUM_OF_REAL_DWARFS 7
 #define SUM_OF_HEIGHTS 100
 #define INVALID_ELEMENT -1
 
-void fnInput(int arr[], size_t size);
-void swap(int &nA, int &nB);
-int fnMinIndexFrom(int arr[], int nFrom, size_t size);
-void fnSelectionSort(int arr[], size_t size);
+void Input(int arr[], size_t size);
+void SelectionSort(int arr[], size_t size);
+int MinIndex(int arr[], size_t size, int iFrom = 0);
+void Swap(int &nA, int &nB);
 
 int main(int argc, char *argv[])
 {
-	int nSumHeights = 0, nDiffHeights = 0;
-	int arrDwarfHeights[NUM_OF_DWARFS] = {0};
-	bool isEnd = false;
+	int sumHeights = 0, diffHeights = 0;
+	int dwarfHeights[NUM_OF_DWARFS] = {0};
 
-	fnInput(arrDwarfHeights, NUM_OF_DWARFS);
-	fnSelectionSort(arrDwarfHeights, NUM_OF_DWARFS);
+	Input(dwarfHeights, NUM_OF_DWARFS);
+	SelectionSort(dwarfHeights, NUM_OF_DWARFS);
 
-	for (int i = 0; i < NUM_OF_DWARFS; ++i)
-		nSumHeights += arrDwarfHeights[i];
+	for (int height : dwarfHeights)
+		sumHeights += height;
 
-	nDiffHeights = nSumHeights - SUM_OF_HEIGHTS;
+	diffHeights = sumHeights - SUM_OF_HEIGHTS;
 
 	for (int i = 0; i < NUM_OF_DWARFS - 1; ++i)
 	{
 		for (int j = i + 1; j < NUM_OF_DWARFS; ++j)
 		{
-			if (arrDwarfHeights[i] + arrDwarfHeights[j] == nDiffHeights)
+			if (dwarfHeights[i] + dwarfHeights[j] == diffHeights)
 			{
-				arrDwarfHeights[i] = arrDwarfHeights[j] = INVALID_ELEMENT;
-				isEnd = true;
-				break;
+				dwarfHeights[i] = dwarfHeights[j] = INVALID_ELEMENT;
+				i = j = NUM_OF_DWARFS;
 			}
 		}
-
-		if (isEnd) break;
 	}
 
-	for (int i = 0; i < NUM_OF_DWARFS; ++i)
-		if (arrDwarfHeights[i] != INVALID_ELEMENT)
-			std::cout << arrDwarfHeights[i] << std::endl;
+	for (int height : dwarfHeights)
+		if (height != INVALID_ELEMENT)
+			std::cout << height << std::endl;
 
 	return 0;
 }
 
-void fnInput(int arr[], size_t size)
+void Input(int arr[], size_t size)
 {
 	for (int i = 0; i < size; ++i)
 		std::cin >> arr[i];
 }
 
-void fnSelectionSort(int arr[], size_t size)
+void SelectionSort(int arr[], size_t size)
 {
 	for (int i = 0; i < size - 1; ++i)
-		swap(arr[i], arr[fnMinIndexFrom(arr, i, size)]);
+		Swap(arr[i], arr[MinIndex(arr, size, i)]);
 }
 
-int fnMinIndexFrom(int arr[], int nFrom, size_t size)
+int MinIndex(int arr[], size_t size, int iFrom)
 {
-	int nMinIndex = nFrom;
+	int iMin = iFrom;
 
-	for (int i = nFrom + 1; i < size; ++i)
-		if (arr[i] < arr[nMinIndex])
-			nMinIndex = i;
+	for (int i = iFrom + 1; i < size; ++i)
+		if (arr[i] < arr[iMin])
+			iMin = i;
 
-	return nMinIndex;
+	return iMin;
 }
 
-void swap(int &nA, int &nB)
+void Swap(int &nA, int &nB)
 {
 	int t = nA;
 	nA = nB;

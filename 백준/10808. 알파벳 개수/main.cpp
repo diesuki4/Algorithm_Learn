@@ -1,20 +1,19 @@
 #include <iostream>
-#include <string>
 
-#define NUM_OF_ALPHABETS 26
+#define NUM_OF_ALPHABETS ('z' - 'a' + 1)
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-	std::string s;
-	int arrNumEachAlphabet[NUM_OF_ALPHABETS] = {0};
+	std::string str;
+	int numEachAlphabet[NUM_OF_ALPHABETS] = {0};
 
-	std::cin >> s;
+	std::cin >> str;
 
-	for (int i = 0; i < s.length(); ++i)
-		++arrNumEachAlphabet[s[i] - 'a'];
+	for (char alphabet : str)
+		++numEachAlphabet[alphabet - 'a'];
 
 	for (int i = 0; i < NUM_OF_ALPHABETS; ++i)
-		std::cout << arrNumEachAlphabet[i] << " ";
+		std::cout << numEachAlphabet[i] << " ";
 
 	return 0;
 }
