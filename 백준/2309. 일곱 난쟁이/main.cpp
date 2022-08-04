@@ -13,7 +13,7 @@ void fnSelectionSort(int arr[], size_t size);
 int main(int argc, char *argv[])
 {
 	int nSumHeights = 0, nDiffHeights = 0;
-	int *arrDwarfHeights = new int[NUM_OF_DWARFS];
+	int arrDwarfHeights[NUM_OF_DWARFS] = {0};
 	bool isEnd = false;
 
 	fnInput(arrDwarfHeights, NUM_OF_DWARFS);
@@ -42,8 +42,6 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < NUM_OF_DWARFS; ++i)
 		if (arrDwarfHeights[i] != INVALID_ELEMENT)
 			std::cout << arrDwarfHeights[i] << std::endl;
-
-	delete arrDwarfHeights;
 
 	return 0;
 }
