@@ -32,11 +32,11 @@ int main(int argc, char* argv[])
 
 	do
 	{
-		std::vector<int>::iterator firstPos = std::find(itMaskBegin, itMaskEnd, 1);
-		std::vector<int>::iterator secondPos = std::find(firstPos + 1, itMaskEnd, 1);
+		std::vector<int>::iterator itFirstPos = std::find(itMaskBegin, itMaskEnd, 1);
+		std::vector<int>::iterator itSecondPos = std::find(itFirstPos + 1, itMaskEnd, 1);
 
-		int iFirstPos = std::distance(itMaskBegin, firstPos);
-		int iSecondPos = std::distance(itMaskBegin, secondPos);
+		int iFirstPos = std::distance(itMaskBegin, itFirstPos);
+		int iSecondPos = std::distance(itMaskBegin, itSecondPos);
 
 		if (dwarfHeights[iFirstPos] + dwarfHeights[iSecondPos] == diffHeights) 
 		{
