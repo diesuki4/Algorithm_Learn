@@ -24,4 +24,6 @@ int main(int argc, char* argv[])
 		totalPrice += truck * price[truck];
 
 	cout << totalPrice;
+
+	return 0;
 }
