@@ -1,28 +1,22 @@
 #include <iostream>
 #include <string>
-#include <cstring>
 
 using namespace std;
 
-string operator >> (string &s, int n)
+string operator >> (string s, int n)
 {
-	char new_s[101] = {0};
 	int length = s.length();
-
-	strncpy(new_s, s.c_str(), length);
 
 	for (int i = 0; i < length; ++i)
 	{
-		char ch = s[i];
-		unsigned char new_uch = ch + n;
+		unsigned char uch = s[i] + n;
 
-		if ('A' <= ch && ch <= 'Z')
-			new_s[i] = ('Z' < new_uch) ? (new_uch - 26) : (new_uch);
-		else if ('a' <= ch && ch <= 'z')
-			new_s[i] = ('z' < new_uch) ? (new_uch - 26) : (new_uch);
+		if ('N' <= uch)
+			 s[i] = (uch <= 'Z') || (('n' <= uch) && (uch <= 'z')) ?
+						uch : uch - 26;
 	}
 
-	return string(new_s);
+	return s;
 }
 
 int main(int argc, char* argv[])
