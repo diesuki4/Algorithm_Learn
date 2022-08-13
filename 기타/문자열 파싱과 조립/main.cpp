@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
 	float f = 6;
 	double d = 3.14;
 
-	/* 출력 스트립을 만들고 */
+	/* 출력 스트림을 만들고 */
 	ostringstream oss;
 
 	/* cout 대신 ostringstream 에 출력한다. */
