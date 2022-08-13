@@ -17,7 +17,6 @@ stringstream
 - >>(입력) 과 <<(출력) 모두에 사용할 수 있지만, 입출력 방향을 헷갈린 경우 오류를 표시해주지 않는다.
 - 위 2개에 비해 성능이 다소 떨어진다.
 - istringstream 과 ostringstream 으로 명시적으로 사용하는 것이 좋다.
-
 ```
 [Why not use stringstream in every case?](https://stackoverflow.com/questions/3292107/whats-the-difference-between-istringstream-ostringstream-and-stringstream-w#answer-3292157)
 
