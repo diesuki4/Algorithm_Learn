@@ -5,7 +5,7 @@
 
 <br>
 
-- #### cout << answer << endl 은 사실 다음과 같다.
+- #### cout << answer << endl; 은 사실 다음과 같다.
 ```
 cout << answer << '\n' << flush;
 ```
