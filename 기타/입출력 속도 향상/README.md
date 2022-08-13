@@ -52,6 +52,10 @@ cin 이 입력을 받기 전에 cout 을 flush 하는 tie 동작을 수행하지
 ```
 cin.tie(NULL);
 ```
+이 코드는 의미가 없다고 하는데 테스트해 본 결과 조금 더 빨라지긴 한다.
+```
+cout.tie(NULL);
+```
 [[C++] sync_with_stdio() 와 cin.tie()](https://nerdooit.github.io/2020/06/20/cpp_fastio.html)
 
 [cout, cin 최적화 방법과 주의점](https://leeeegun.tistory.com/4)
