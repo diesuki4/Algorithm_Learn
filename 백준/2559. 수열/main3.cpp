@@ -1,10 +1,9 @@
 #include <iostream>
+#include <algorithm>
 #include <climits>
 #include <queue>
 
 using namespace std;
-
-#define MAX(x, y) ((x) < (y) ? (y) : (x))
 
 int main(int argc, char* argv[])
 {
@@ -26,7 +25,7 @@ int main(int argc, char* argv[])
 
 		if (k <= i)
 		{
-			maxTemp = MAX(maxTemp, localSum);
+			maxTemp = max(maxTemp, localSum);
 
 			localSum -= que.front();
 			que.pop();

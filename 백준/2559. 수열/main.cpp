@@ -1,9 +1,8 @@
 #include <iostream>
+#include <algorithm>
 #include <climits>
 
 using namespace std;
-
-#define MAX(x, y) ((x) < (y) ? (y) : (x))
 
 int main(int argc, char* argv[])
 {
@@ -25,7 +24,7 @@ int main(int argc, char* argv[])
 		for (int j = i; j < i + k; ++j)
 			sumTemp += temp[j];
 
-		maxTemp = MAX(maxTemp, sumTemp);
+		maxTemp = max(maxTemp, sumTemp);
 	}
 
 	cout << maxTemp;

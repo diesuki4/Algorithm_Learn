@@ -1,10 +1,9 @@
 #include <iostream>
+#include <algorithm>
 #include <climits>
 #include <list>
 
 using namespace std;
-
-#define MAX(x, y) ((x) < (y) ? (y) : (x))
 
 int main(int argc, char* argv[])
 {
@@ -29,7 +28,7 @@ int main(int argc, char* argv[])
 		{
 			int sum = lst.front();
 
-			maxTemp = MAX(maxTemp, sum);
+			maxTemp = max(maxTemp, sum);
 
 			lst.pop_front();
 		}
