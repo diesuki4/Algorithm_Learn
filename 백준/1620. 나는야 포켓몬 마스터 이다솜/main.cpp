@@ -10,29 +10,29 @@ int main(int argc, char* argv[])
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-    int n, m;
-    unordered_map<string, int> umap;
-    string s, names[100001];
+	int n, m;
+	unordered_map<string, int> umap;
+	string s, names[100001];
 
-    cin >> n >> m;
+	cin >> n >> m;
 
-    for (int i = 1; i <= n; ++i)
-    {
-        cin >> s;
+	for (int i = 1; i <= n; ++i)
+	{
+		cin >> s;
 
-        umap[s] = i;
-        names[i] = s;
-    }
+		umap[s] = i;
+		names[i] = s;
+	}
 
-    for (int i = 0; i < m; ++i)
-    {
-        cin >> s;
+	for (int i = 0; i < m; ++i)
+	{
+		cin >> s;
 
-        if ('A' <= s[0])
+		if ('A' <= s[0])
 			cout << umap[s] << '\n';
-       	else
+		else
 			cout << names[stoi(s)] << '\n';
-    }
+	}
 
     return 0;
 }
