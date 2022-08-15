@@ -6,15 +6,13 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	int n;
-	int asteriskPos;
+	// 패턴이 ( ab*cd ) 일 때, ( ^ab.*cd$ ) 로 변경된다.
 	string pattern;
-	string subBegin, subEnd;
 
 	cin >> n >> pattern;
-	asteriskPos = pattern.find('*');
 
-	subBegin = pattern.substr(0, asteriskPos);
-	subEnd = pattern.substr(asteriskPos + 1);
+	pattern = regex_replace(pattern, regex("\\*"), ".*");
+	pattern = "^" + pattern + "$";
 
 	for (int i = 0; i < n; ++i)
 	{
@@ -22,7 +20,9 @@ int main(int argc, char* argv[])
 
 		cin >> fileName;
 
-		if (regex_match(fileName, regex(subBegin + ".*" + subEnd)))
+		// regex_search 는 부분 문자열 (Substring) 의 일치도 확인하기 때문에
+		// ^ 을 통해 시작을, $ 를 통해 끝을 명시해주어야 한다.
+		if (regex_search(fileName, regex(pattern)))
 			cout << "DA" << endl;
 		else
 			cout << "NE" << endl;

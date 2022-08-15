@@ -1,34 +1,28 @@
 #include <iostream>
-#include <algorithm>
+#include <regex>
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
 	int n;
-	int asteriskPos;
+	// 패턴이 ( ab*cd ) 일 때, ( ab.*cd ) 로 변경된다.
 	string pattern;
-	string subBegin, reverseEnd;
-	
-	cin >> n >> pattern;
-	asteriskPos = pattern.find('*');
 
-	subBegin = pattern.substr(0, asteriskPos);
-	
-	reverseEnd = pattern.substr(asteriskPos + 1);
-	reverse(reverseEnd.begin(), reverseEnd.end());
+	cin >> n >> pattern;
+
+	pattern = regex_replace(pattern, regex("\\*"), ".*");
 
 	for (int i = 0; i < n; ++i)
 	{
-		string fileName, reverseName;
+		string fileName;
 
 		cin >> fileName;
 
-		reverseName = fileName;
-		reverse(reverseName.begin(), reverseName.end());
-
-		if (!fileName.find(subBegin) && !reverseName.find(reverseEnd) &&
-				(subBegin + reverseEnd).length() <= fileName.length())
+		// regex_match 는 부분 문자열 (Substring) 에 대한 검사 없이
+		// 전체 문자열에 대해서만 검사하므로
+		// ( ab*cd ) 와 같이 사용해도 된다.
+		if (regex_match(fileName, regex(pattern)))
 			cout << "DA" << endl;
 		else
 			cout << "NE" << endl;
