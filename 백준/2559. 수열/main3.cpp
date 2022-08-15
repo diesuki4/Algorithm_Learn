@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 			// 최댓값을 갱신한다.
 			maxTemp = max(maxTemp, localSum);
 
-			// 가장 오래된 요소를 부분합에서 빼준다.
+			// 가장 오래된 원소를 부분합에서 빼준다.
 			localSum -= que.front();
 
 			// 큐에서도 제거한다.
