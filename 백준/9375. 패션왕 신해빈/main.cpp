@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
 			cin >> type >> type;
 
 			// 해당 종류의 의상 수를 1 증가시킨다.
+			// 존재하지 않는 키의 값은 0이다.
 			++umap[type];
 		}
 
