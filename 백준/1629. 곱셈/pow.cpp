@@ -13,6 +13,11 @@ int pow_of_2(int n)
 	return cnt;
 }
 
+/*
+	분할 정복을 이용한 거듭 제곱
+	https://hbj0209.tistory.com/43
+*/
+
 // 거듭 제곱을 반환
 int pow(int base, int exp)
 {
