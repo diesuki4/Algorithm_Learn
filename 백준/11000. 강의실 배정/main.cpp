@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
     // 시작 시간을 기준으로 정렬 (같으면 종료 시간 기준)
     sort(lecture.begin(), lecture.end());
 	
-    // 시작 시간이 가장 빠른 강의를 우선순위 큐에 삽입
+    // 시작 시간이 가장 빠른 강의의 종료 시간을 우선순위 큐에 삽입
     prQueue.push(lecture[0].second);
     
     // 시작 시간이 빠른 순으로 2번 째부터 순회
