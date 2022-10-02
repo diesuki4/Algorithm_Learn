@@ -42,13 +42,8 @@ int main(int argc, char* argv[])
 
 bool compare(int i, int j)
 {
-	if (counts[i] > counts[j])
-		return true;
-	else if (counts[i] < counts[j])
-		return false;
+	if (counts[i] == counts[j])
+		return firsts[i] < firsts[j];
 
-	if (firsts[i] < firsts[j])
-		return true;
-	else
-		return false;
+	return counts[i] > counts[j];
 }
