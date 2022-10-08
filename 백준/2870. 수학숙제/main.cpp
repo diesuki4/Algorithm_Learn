@@ -1,5 +1,4 @@
 #include <iostream>
-#include <sstream>
 #include <algorithm>
 #include <vector>
 
@@ -21,15 +20,12 @@ int main(int argc, char* argv[])
 
 	while (M--)
 	{
-		char ch;
 		string line;
 		string strNum;
-		istringstream iss;
 
 		cin >> line;
-		iss = istringstream(line);
 
-		while (iss >> ch)
+		for (char ch : line)
 			// 숫자면 무조건 붙인다
 			if (isdigit(ch))
 				strNum += ch;
