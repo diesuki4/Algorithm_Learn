@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	int playTime = to_sec("48:00");
 	int winTime1 = 0, winTime2 = 0;
 	int diffScore = 0;
-	map<int, int> mp;
+	map<int, int> goals;
 
 	cin >> N;
 
@@ -32,18 +32,18 @@ int main(int argc, char* argv[])
 
 		// mp[to_sec("01:14")] = 2;
 		// 74초에 2팀이 득점 함
-		mp[to_sec(timestamp)] = teamNo;
+		goals[to_sec(timestamp)] = teamNo;
 	}
 
 	// 게임 진행 (diffScore 는 1팀 기준)
 	for (int i = 0; i < playTime; ++i)
 	{
 		// 현재 시간에서 1팀 득점 정보가 있으면
-		if (mp[i] == 1)
+		if (goals[i] == 1)
 			// 점수 차 증가
 			++diffScore;
 		// 현재 시간에서 2팀 득점 정보가 있으면
-		else if (mp[i] == 2)
+		else if (goals[i] == 2)
 			// 점수 차 감소
 			--diffScore;
 
