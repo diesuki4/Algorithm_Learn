@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
 string solution(string X, string Y)
 {
-    string answer = "";
+	string answer = "";
 	int numNumbersX[10] = {0};	// X 내의 0~9 까지의 숫자의 개수
 	int numNumbersY[10] = {0};	// Y 내의 0~9 까지의 숫자의 개수
 
@@ -37,5 +37,5 @@ string solution(string X, string Y)
 		answer += string(min(numNumbersX[0], numNumbersY[0]), '0');
 
 	// 겹치는 숫자가 있으면 만든 문자열을, 없으면 -1 반환
-    return (0 < answer.length()) ? answer : "-1";
+	return (0 < answer.length()) ? answer : "-1";
 }
