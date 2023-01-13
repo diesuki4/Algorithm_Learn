@@ -5,7 +5,7 @@ using namespace std;
 
 int solution(int n);
 
-int main()
+int main(int argc, char* argv[])
 {
     cout << solution(3628800) << endl;
     cout << solution(7) << endl;

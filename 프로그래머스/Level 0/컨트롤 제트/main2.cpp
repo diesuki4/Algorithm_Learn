@@ -16,7 +16,7 @@ public :
 
 int solution(string s);
 
-int main()
+int main(int argc, char* argv[])
 {
     cout << solution("1 2 Z 3") << endl;
     cout << solution("10 20 30 40") << endl;

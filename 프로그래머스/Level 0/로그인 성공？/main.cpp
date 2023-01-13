@@ -5,7 +5,7 @@ using namespace std;
 
 string solution(vector<string> id_pw, vector<vector<string>> db);
 
-int main()
+int main(int argc, char* argv[])
 {
     cout << solution({"meosseugi", "1234"}, {{"rardss", "123"}, {"yyoom", "1234"}, {"meosseugi", "1234"}}) << endl;
     cout << solution({"programmer01", "15789"}, {{"programmer02", "111111"}, {"programmer00", "134"}, {"programmer01", "1145"}}) << endl;
