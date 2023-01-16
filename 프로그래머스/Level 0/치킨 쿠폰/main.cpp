@@ -4,9 +4,9 @@ using namespace std;
 
 int solution(int chicken);
 
-int main()
+int main(int argc, char* argv[])
 {
-    cout << solution(100) << endl;
+	cout << solution(100) << endl;
 	cout << solution(1081) << endl;
 }
 

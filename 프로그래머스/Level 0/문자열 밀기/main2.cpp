@@ -4,7 +4,7 @@ using namespace std;
 
 int solution(string A, string B);
 
-int main()
+int main(int argc, char* argv[])
 {
 	cout << solution("hello", "ohell") << endl;
 	cout << solution("apple", "elppa") << endl;
