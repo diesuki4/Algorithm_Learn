@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,20 +16,13 @@ int main(int argc, char* argv[])
 
 int solution(vector<int> array, int n)
 {
-    int answer = array[0];
-    int dist = abs(n - array[0]);
-    size_t size = array.size();
-
-    for (int i = 1; i < size; ++i)
+    sort(array.begin(), array.end(), [n](const int a, const int b)
     {
-        int t_dist = abs(n - array[i]);
+        int distA = abs(n - a);
+        int distB = abs(n - b);
 
-        if (t_dist <= dist)
-        {
-            answer = (t_dist < dist) ? array[i] : min(answer, array[i]);
-            dist = t_dist;
-        }
-    }
+        return (distA == distB) ? (a < b) : (distA < distB);
+    });
 
-    return answer;
+    return array[0];
 }
