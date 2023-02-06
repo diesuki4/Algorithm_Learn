@@ -2,9 +2,8 @@
 #include <vector>
 
 using namespace std;
-using ullong = unsigned long long;
 
-ullong solution(int balls, int share);
+int solution(int balls, int share);
 
 int main(int argc, char* argv[])
 {
@@ -14,19 +13,21 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-ullong solution(int balls, int share)
+int solution(int balls, int share)
 {
-    vector<vector<ullong>> table(balls + 1);
+    // nC0을 1로 초기화하기 위함이다.
+    vector<vector<int>> comb(31, vector<int>(31, 1));
 
+    // i가 5일 때
     for (int i = 1; i <= balls; ++i)
     {
-        table[i].push_back(1);
-
+        // 5C1부터 5C4까지 계산한 후
         for (int j = 1; j < i; ++j)
-            table[i].push_back(table[i - 1][j - 1] + table[i - 1][j]);
+            comb[i][j] = comb[i - 1][j - 1] + comb[i - 1][j];
 
-        table[i].push_back(1);
+        // 5C5에는 1을 적는다.
+        comb[i][i] = 1;
     }
 
-    return table[balls][share];
+    return comb[balls][share];
 }
