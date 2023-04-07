@@ -31,7 +31,7 @@ int solution(string skill, vector<string> skill_trees)
         {
             if (mp[c] - 1 == mp[last])
             {
-                if (c == prev(mp.end())->first)
+                if (c == mp.rbegin()->first)
                     break;
                 else
                     last = c;
