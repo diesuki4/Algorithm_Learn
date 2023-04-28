@@ -18,7 +18,7 @@ string solution(int q, int r, string code)
 
     for (int i = 0; i < code.length(); ++i)
         if (i % q == r)
-            answer.push_back(code[i]);
+            answer.emplace_back(code[i]);
 
     return answer;
 }
