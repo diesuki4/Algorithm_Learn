@@ -12,6 +12,7 @@ int main(int argc, char* argv[])
     cout << solution("FRANCE", "french") << endl;
     cout << solution("handshake", "shake hands") << endl;
     cout << solution("aa1+aa2", "AAAA12") << endl;
+    cout << solution("zzzz", "zz+zz") << endl;
     cout << solution("E=M*C^2", "e=m*c^2") << endl;
 
     return 0;
