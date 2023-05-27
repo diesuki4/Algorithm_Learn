@@ -1,4 +1,3 @@
-// 이 풀이는 시간 초과가 발생한다.
 #include <iostream>
 #include <vector>
 #include <map>
@@ -30,24 +29,22 @@ void print(vector<int> result)
 
 vector<int> solution(vector<int> sequence, int k)
 {
-    map<int, set<vector<int>>> mp;
+    int l = 0, r = -1;
+    int sum = 0;
     size_t size = sequence.size();
+    map<int, set<vector<int>>> mp;
 
-    for (int i = 0; i < size; ++i)
+    do
     {
-        int sum = 0;
+        if (sum < k && ++r < size)
+            sum += sequence[r];
+        else
+            sum -= sequence[l++];
 
-        for (int j = i; j < size; ++j)
-        {
-            sum += sequence[j];
-
-            if (sum == k)
-                mp[j - i].emplace(vector<int> {i, j});
-
-            if (k <= sum)
-                break;
-        }
+        if (sum == k)
+            mp[r - l].emplace(vector<int> {l, r});
     }
+    while (r < size && l < size);
 
     return *mp.begin()->second.begin();
 }

@@ -1,8 +1,5 @@
-// 이 풀이는 시간 초과가 발생한다.
 #include <iostream>
 #include <vector>
-#include <map>
-#include <set>
 
 using namespace std;
 
@@ -30,24 +27,22 @@ void print(vector<int> result)
 
 vector<int> solution(vector<int> sequence, int k)
 {
-    map<int, set<vector<int>>> mp;
-    size_t size = sequence.size();
+    vector<int> answer;
 
-    for (int i = 0; i < size; ++i)
+    int srt = 0, end = 0, sum = 0;
+
+    for (int i = 0; i < sequence.size(); i++)
     {
-        int sum = 0;
+        end = i;
+        sum += sequence[end];
 
-        for (int j = i; j < size; ++j)
-        {
-            sum += sequence[j];
+        while (sum > k)
+            sum -= sequence[srt++];
 
-            if (sum == k)
-                mp[j - i].emplace(vector<int> {i, j});
-
-            if (k <= sum)
-                break;
-        }
+        if (sum == k)
+            if (answer.empty() || end - srt < answer[1] - answer[0])
+                answer = {srt, end};
     }
 
-    return *mp.begin()->second.begin();
+    return answer;
 }
