@@ -29,19 +29,19 @@ vector<int> solution(vector<int> sequence, int k)
 {
     vector<int> answer;
 
-    int srt = 0, end = 0, sum = 0;
+    int l = 0, r = 0, sum = 0;
 
-    for (int i = 0; i < sequence.size(); i++)
+    for (int i = 0; i < sequence.size(); ++i)
     {
-        end = i;
-        sum += sequence[end];
+        r = i;
+        sum += sequence[r];
 
         while (sum > k)
-            sum -= sequence[srt++];
+            sum -= sequence[l++];
 
         if (sum == k)
-            if (answer.empty() || end - srt < answer[1] - answer[0])
-                answer = {srt, end};
+            if (answer.empty() || r - l < answer[1] - answer[0])
+                answer = {l, r};
     }
 
     return answer;
