@@ -40,7 +40,7 @@ int solution(int bridge_length, int weight, vector<int> truck_weights)
         }
         else
         {
-            bridge.emplace_back(-1);
+            bridge.emplace_back(0);
         }
 
         ++answer;
