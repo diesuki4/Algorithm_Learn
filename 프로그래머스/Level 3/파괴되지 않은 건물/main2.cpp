@@ -54,8 +54,7 @@ int solution(vector<vector<int>> board, vector<vector<int>> skill)
 
     for (int r = 0; r < R; ++r)
         for (int c = 0; c < C; ++c)
-            if (0 < board[r][c] + pSum[r][c])
-                ++answer;
+            answer += (0 < board[r][c] + pSum[r][c]);
 
     return answer;
 }
