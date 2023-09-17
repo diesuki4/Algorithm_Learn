@@ -15,7 +15,6 @@ int main(int argc, char* argv[])
 
 int solution(int n, vector<int> money)
 {
-    int answer = 0;
     int DIV = 1'000'000'007;
     vector<int> DP(n + 1, 0);
 

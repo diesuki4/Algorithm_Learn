@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+#define UNREACHABLE 1000
+
 using namespace std;
 
 struct Edge
@@ -25,7 +27,6 @@ int main(int argc, char* argv[])
         cin >> N >> M >> W;
 
         vector<Edge> edges;
-        vector<int> cost(N + 1, 0);
 
         for (int i = 0; i < M; ++i)
         {
@@ -44,6 +45,8 @@ int main(int argc, char* argv[])
             edges.push_back({start, end, -time});
         }
 
+        vector<int> cost(N + 1, UNREACHABLE);
+        
         while (--N)
         {
             for (Edge& edge : edges)
