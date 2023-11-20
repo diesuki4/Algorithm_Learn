@@ -7,23 +7,18 @@ int TwoPointers(vector<int>& v, int M)
 {
     int answer = 0;
     size_t n = v.size();
-    int l = 0, r = 0, sum = v[0];
+    int l = 0, r = 0, sum = 0;
 
-    while (l < n || r < n)
+    while (l <= r)
     {
-        if (sum <= M)
-        {
-            answer += (sum == M);
-            
-            if (++r < n)
-                sum += v[r];
-            else
-                sum -= v[l++];
-        }
-        else
-        {
+        if (M <= sum)
             sum -= v[l++];
-        }
+        else if (n <= r)
+            break;
+        else
+            sum += v[r++];
+
+        answer += (sum == M);
     }
 
     return answer;
